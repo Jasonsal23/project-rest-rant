@@ -10,6 +10,14 @@ function Def (html){
             </head>
             <body>
                 {html.children}
+                <div class="wrapper">
+                    <a href="https://www.linkedin.com/in/salazar-jason/">Linkedin</a>
+                    <br></br>
+                    <a href="https://github.com/Jasonsal23">GITHUB</a>
+                <div class ="push"></div>
+                </div>
+                <footer class="footer"></footer>
+                
             </body>
         </html>
     )
