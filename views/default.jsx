@@ -23,13 +23,13 @@ function Def (html){
                     </ul>
                 </nav>
                 {html.children}
-                <div class="wrapper">
+                <div className="wrapper">
                     <a href="https://www.linkedin.com/in/salazar-jason/">Linkedin</a>
                     <br></br>
                     <a href="https://github.com/Jasonsal23">GITHUB</a>
-                <div class ="push"></div>
+                <div className ="push"></div>
                 </div>
-                <footer class="footer"></footer>
+                <footer className="footer"></footer>
                 
             </body>
         </html>
