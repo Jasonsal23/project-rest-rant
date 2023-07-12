@@ -29,41 +29,25 @@ router.get('/:id', (req, res) => {
     })
 })
 
-    
-    /*let id = Number(req.params.id)
-    if(isNaN(id)){
-        res.render('error404')
-    }
-    else if (!places[id]){
-        res.render('error404')
-    }
-    else{
-    res.render('places/show', {place: places[id],id})
-    }*/
-
-
 router.post('/', (req, res)=>{
     db.Place.create(req.body)
     .then(() =>{
         res.redirect('/places')
     })
     .catch(err =>{
-        console.log('err', err)
-        res.render('error404')
+        if (err && err.name == 'ValidationError') {
+            let message = 'Validation Error: '
+            for (var field in err.errors) {
+                message += `${field} was ${err.errors[field].value}. `
+                message += `${err.errors[field].message}`
+            }
+            console.log('Validation error message', message)
+            res.render('places/new', { message })
+        }
+        else {
+            res.render('error404')
+        }
     })
-    
-    //console.log(req.body)
-    /*if (!req.body.pic){
-        req.body.pic='http://placeKitten.com/400/400'
-    }
-    if(!req.body.city){
-        req.body.city = 'Anytown'
-    }
-    if(!req.body.state){
-        req.body.state ='USA'
-    }
-    places.push(req.body)
-    res.redirect('/places')*/
 })
 
 router.get('/:id/edit', (req, res) => {
