@@ -17,6 +17,9 @@ function show(data){
                 <stong>- {c.author}</stong>
                 </h3>
                 <h4>Rating: {c.stars}</h4>
+                <form method="POST" action={`/places/${data.place.id}/comment/${c.id}?_method=DELETE`}>
+                    <input type="submit" className="btn btn-danger" value="Delete Comment" />
+                </form>
             </div>
             )
         })
@@ -51,6 +54,31 @@ function show(data){
                 <h2>Comments?</h2>
                 {comments}
                 </div>
+                <hr />
+            <h2>Make your own comment!</h2>
+                <form action={`/places/${data.place.id}/comment`} method="POST">
+                <div className="row">
+                <div className="form-group col-sm-12">
+                <label htmlFor="content">Content</label>
+                <textarea id="content" name="content" className="form-control" required></textarea>
+                </div>
+                </div>
+                <div className="row">
+                <div className="form-group col-sm-4">
+                <label htmlFor="author">Author</label>
+                    <input id="author" name="author" className="form-control" required/>
+                </div>
+                <div className="form-group col-sm-4">
+                <label htmlFor="stars" class="form-label">Star Rating</label>
+                    <input type="range" class="form-range" step="0.5" min="1" max="5" id="stars" name="stars" className="form-control" />
+                </div>
+                <div className="form-group col-sm-1">
+                <label htmlFor="rant" class="form-check-label">Rant?</label>
+                    <input type="checkbox" class="form-check-input" id="rant" name="rant" className="form-control" />
+                </div>
+                </div>
+                    <input type="submit" className="btn btn-primary" value="Add Comment" />
+            </form>
             </main>
         </Def>
     )
