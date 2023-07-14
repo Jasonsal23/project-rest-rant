@@ -16,10 +16,14 @@ function show(data){
         let sumRatings = data.place.comments.reduce((tot, c)=> {
             return tot + c.stars
         }, 0)
-        let averageRating = sumRatings / data.place.comments.length 
+        let averageRating = Math.round(sumRatings / data.place.comments.length) 
+        let stars =''
+        for(let i =0; i< averageRating; i++){
+            stars+='⭐️'
+        }
         rating=(
             <h3>
-                {Math.round(averageRating)} stars
+                {stars} stars
             </h3>
         )
     }
@@ -57,10 +61,10 @@ function show(data){
                 <h2>Description</h2>
                 <h4>{data.place.showEstablished()}</h4>
                 <h4>Serving {data.place.cuisines}</h4>
-                <a href={`/places/${data.id}/edit`} className="btn btn-warning"> 
+                <a href={`/places/${data.place.id}/edit`} className="btn btn-warning"> 
                     Edit
                 </a>  
-                <form method="POST" action={`/places/${data.id}?_method=DELETE`}> 
+                <form method="POST" action={`/places/${data.place.id}?_method=DELETE`}> 
                     <button type="submit" className="btn btn-danger">
                         Delete
                     </button>
