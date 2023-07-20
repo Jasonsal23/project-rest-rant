@@ -90,12 +90,12 @@ function show(data){
                     <input id="author" name="author" className="form-control" required/>
                 </div>
                 <div className="form-group col-sm-4">
-                <label htmlFor="stars" class="form-label">Star Rating</label>
-                    <input type="range" class="form-range" step="0.5" min="1" max="5" id="stars" name="stars" className="form-control" />
+                <label htmlFor="stars" className="form-label" >Star Rating</label>
+                    <input type="range" className="form-range" step="0.5" min="1" max="5" id="stars" name="stars"  />
                 </div>
                 <div className="form-group col-sm-1">
-                <label htmlFor="rant" class="form-check-label">Rant?</label>
-                    <input type="checkbox" class="form-check-input" id="rant" name="rant" className="form-control" />
+                <label htmlFor="rant" className="form-check-label">Rant?</label>
+                    <input type="checkbox" className="form-check-input" id="rant" name="rant"  />
                 </div>
                 </div>
                     <input type="submit" className="btn btn-primary" value="Add Comment" />
