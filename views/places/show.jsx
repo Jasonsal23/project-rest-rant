@@ -35,7 +35,7 @@ function show(data){
                 <h2 className="rant">{c.rant ? 'Rant! 😡' : 'Rave! 😻'}</h2>
                 <h4>{c.content}</h4>
                 <h3>
-                <stong>- {c.author}</stong>
+                <strong>- {c.author}</strong>
                 </h3>
                 <h4>Rating: {c.stars}</h4>
                 <form method="POST" action={`/places/${data.place.id}/comment/${c.id}?_method=DELETE`}>
